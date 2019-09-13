@@ -7,6 +7,9 @@ Don't use `print()` anymore. Use `prnt()` for the rest of your life :)
 ## How to install
 
 ```bash
+# If you have both Python 2 and 3,
+pip3 install pyprnt
+# If you only have Python 3,
 pip install pyprnt
 ```
 

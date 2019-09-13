@@ -2,7 +2,7 @@ import sys
 from .helper import prnt_list, prnt_dict
 
 def prnt(*obj, enable=True, sep='', end='\n', file=sys.stdout, flush=False):
-    if (len(obj) > 1 and sep != '') or (len(obj) <= 1 and sep == ''):
+    if len(obj) > 1 and sep != '':
         print(*obj, sep=sep, end=end, file=file, flush=flush)
         return
 

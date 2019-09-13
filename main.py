@@ -7,7 +7,7 @@ menu = {
 }
 prnt(creation)
 prnt(menu)
-prnt(["abcd"], ["asdf"], sep="")
+prnt(["abcd"], ["asdf"], sep="-")
 prnt("abcd", sep="")
 prnt("Hi", "Kev")
 print("Hi", "Kev")

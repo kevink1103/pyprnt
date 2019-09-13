@@ -24,7 +24,7 @@ prnt(creation)
 prnt(menu)
 ```
 
-### You should see this
+You should see this...
 
 ```text
 ┌─┬────┐
@@ -36,3 +36,10 @@ prnt(menu)
 │Ice Cream│100 │
 └─────────┴────┘
 ```
+
+## Author
+
+Kevin Kim  
+[Website](https://kevink1103.github.io/) 
+[GitHub](https://github.com/kevink1103) 
+[LinkedIn](https://www.linkedin.com/in/kimsungbum/)

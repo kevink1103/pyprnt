@@ -1,0 +1,59 @@
+Metadata-Version: 2.1
+Name: pyprnt
+Version: 1.0.0
+Summary: Python Pretty Printer
+Home-page: https://github.com/kevink1103/pyprnt
+Author: Kevin Kim
+Author-email: kevink1103@gmail.com
+License: MIT
+Download-URL: https://github.com/kevink1103/pyprnt/dist/pyprnt-1.0.0.tar.gz
+Description: # PyPrnt
+        
+        PyPrnt helps you to print a list or a dictionary in an organized table form.  
+        Just try it out!  
+        Don't use `print()` anymore. Use `prnt()` for the rest of your life :)
+        
+        ## How to install
+        
+        ```bash
+        pip install pyprnt
+        ```
+        
+        ## How to use
+        
+        ```python
+        from pyprnt import prnt
+        
+        creation = ["Adam", "Eve"]
+        menu = {
+            "Kimchi": 5000,
+            "Ice Cream": 100
+        }
+        prnt(creation)
+        prnt(menu)
+        ```
+        
+        ### You should see this
+        
+        ```text
+        ┌─┬────┐
+        │0│Adam│
+        │1│Eve │
+        └─┴────┘
+        ┌─────────┬────┐
+        │Kimchi   │5000│
+        │Ice Cream│100 │
+        └─────────┴────┘
+        ```
+        
+Keywords: pretty,print
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3
+Description-Content-Type: text/markdown

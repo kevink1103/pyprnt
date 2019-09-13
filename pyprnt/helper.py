@@ -5,7 +5,7 @@ def __bottom_border(first, second):
     return "└" + "─" * (first) + "┴" + "─" * (second) + "┘"
 
 def prnt_list(obj, end):
-    indexes = str(len(obj))
+    indexes = str(len(obj)-1)
     max_idx_length = len(indexes)
     values = list(map(str, obj))
     max_val_length = len(max(values, key=len))
@@ -30,8 +30,8 @@ def prnt_dict(obj, end):
     
     print(top_border)
     for key, val in obj.items():
-        idx_empty = " " * (max_key_length - len(str(key)))
+        key_empty = " " * (max_key_length - len(str(key)))
         val_empty = " " * (max_val_length - len(str(val)))
-        text = "│{}{}│{}{}│".format(key, idx_empty, val, val_empty)
+        text = "│{}{}│{}{}│".format(key, key_empty, val, val_empty)
         print(text)
     print(bottom_border, end=end)

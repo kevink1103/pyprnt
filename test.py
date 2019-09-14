@@ -1,4 +1,5 @@
 import unittest
+from unittest.mock import patch
 import sys
 import io
 
@@ -9,17 +10,17 @@ from pyprnt import prnt
 class TestBorderMethods(unittest.TestCase):
 
     def test_top_border(self):
-        testee = border(Position.top, 5, 5, 20)
+        testee = border(Position.top, label=5, value=5, width=20)
         expect = '┌─────┬─────┐'
         self.assertEqual(testee, expect)
     
     def test_bottom_border(self):
-        testee = border(Position.bottom, 5, 5, 20)
+        testee = border(Position.bottom, label=5, value=5, width=20)
         expect = '└─────┴─────┘'
         self.assertEqual(testee, expect)
     
     def test_exceed_border(self):
-        testee1 = border(Position.top, 5, 20, 20)
+        testee1 = border(Position.top, label=5, value=20, width=20)
         testee2 = len(testee1)
         expect1 = '┌─────┬────────────┐'
         expect2 = 20

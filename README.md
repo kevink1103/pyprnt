@@ -58,7 +58,7 @@ prnt(creation, enable=False)
 
 ### both: bool  
 
-Print both original print() form and prnt() form.
+Print in both original print() form and prnt() form.
 
 ```python
 prnt(creation, both=True)
@@ -74,7 +74,7 @@ prnt(creation, both=True)
 
 ### sep: str
 
-Put separator between each input.
+Put a separator between each input.
 
 ```python
 prnt("010", "8282", "8282", sep="-")

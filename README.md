@@ -1,5 +1,7 @@
 # PyPrnt
 
+[![PyPI version](https://badge.fury.io/py/pyprnt.svg)](https://badge.fury.io/py/pyprnt)
+
 PyPrnt helps you to print a list or a dictionary in an organized table form.  
 Just try it out!  
 Don't use `print()` anymore. Use `prnt()` for the rest of your life :)

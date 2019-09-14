@@ -42,6 +42,63 @@ You should see this...
 └─────────┴────┘
 ```
 
+## And more...
+
+### enable: bool
+
+Enable prnt() form.
+
+```python
+prnt(creation, enable=False)
+```
+
+```text
+['Adam', 'Eve']
+```
+
+### both: bool  
+
+Print both original print() form and prnt() form.
+
+```python
+prnt(["Hello"], both=True)
+```
+
+```text
+['Hello']
+┌─┬─────┐
+│0│Hello│
+└─┴─────┘
+```
+
+### sep: str
+
+Put separator between each input.
+
+```python
+prnt("010", "8282", "8282", sep="-")
+```
+
+```text
+010-8282-8282
+```
+
+### end: str
+
+Put at the end of an output.
+
+```python
+prnt(creation, end="")
+prnt("The force is with me")
+```
+
+```text
+┌─┬────┐
+│0│Adam│
+│1│Eve │
+└─┴────┘The force is with me
+```
+
 ## Author
 
 Kevin Kim  

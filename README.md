@@ -61,14 +61,15 @@ prnt(creation, enable=False)
 Print both original print() form and prnt() form.
 
 ```python
-prnt(["Hello"], both=True)
+prnt(creation, both=True)
 ```
 
 ```text
-['Hello']
-┌─┬─────┐
-│0│Hello│
-└─┴─────┘
+['Adam', 'Eve']
+┌─┬────┐
+│0│Adam│
+│1│Eve │
+└─┴────┘
 ```
 
 ### sep: str

@@ -18,3 +18,5 @@ prnt(["ldakfjsdlkjflkasdjflkajflkjdklfjalkjfsalkjfkldnflkndslknlkfndlkfnlkdansfd
 prnt(["HI"], enable=False)
 prnt(creation, end="")
 prnt("The force is with me")
+heros = [["Spiderman", "Ironman"], ["Vision", "Scarlet Witch"]]
+prnt(heros, both=True)

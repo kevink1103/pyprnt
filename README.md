@@ -78,7 +78,10 @@ Truncate output values if they exceed the maximum width of Terminal.
 The maximum width of Terminal is 50 in this example.
 
 ```python
+# truncate = False
 prnt(["abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz", 12345678910])
+# truncate = True
+prnt(["abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz", 12345678910], truncate=True)
 ```
 
 ```text
@@ -86,6 +89,10 @@ prnt(["abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstu
 │0│abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst│
 │ │uvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmn│
 │ │opqrstuvwxyz                                  │
+│1│12345678910                                   │
+└─┴──────────────────────────────────────────────┘
+┌─┬──────────────────────────────────────────────┐
+│0│abcdefghijklmnopqrstuvwxyzabcdefghijklmnopq...│
 │1│12345678910                                   │
 └─┴──────────────────────────────────────────────┘
 ```

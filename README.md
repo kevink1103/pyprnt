@@ -72,6 +72,24 @@ prnt(creation, both=True)
 └─┴────┘
 ```
 
+### truncate: bool (default: False)
+
+Truncate output values if they exceed the maximum width of Terminal.  
+The maximum width of Terminal is 50 in this example.
+
+```python
+prnt(["abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz", 12345678910])
+```
+
+```text
+┌─┬──────────────────────────────────────────────┐
+│0│abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst│
+│ │uvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmn│
+│ │opqrstuvwxyz                                  │
+│1│12345678910                                   │
+└─┴──────────────────────────────────────────────┘
+```
+
 ### sep: str  (default: '')
 
 Put a separator between each input.
@@ -98,6 +116,24 @@ prnt("The force is with me")
 │0│Adam│
 │1│Eve │
 └─┴────┘The force is with me
+```
+
+### width: int (default: Current Terminal width or 50)
+
+Set the maximum width of Terminal.
+
+```python
+prnt(["Kevin"], width=5)
+```
+
+```text
+┌─┬─┐
+│0│K│
+│ │e│
+│ │v│
+│ │i│
+│ │n│
+└─┴─┘
 ```
 
 ## Author

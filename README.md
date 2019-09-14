@@ -125,7 +125,7 @@ prnt("The force is with me")
 └─┴────┘The force is with me
 ```
 
-### width: int (default: Current Terminal width or 50)
+### width: int (default: current Terminal width or 50)
 
 Set the maximum width of Terminal.
 

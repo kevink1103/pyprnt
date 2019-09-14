@@ -44,7 +44,7 @@ You should see this...
 
 ## And more...
 
-### enable: bool
+### enable: bool (default: True)
 
 Enable prnt() form.
 
@@ -56,7 +56,7 @@ prnt(creation, enable=False)
 ['Adam', 'Eve']
 ```
 
-### both: bool  
+### both: bool (default: False)
 
 Print in both original print() form and prnt() form.
 
@@ -72,7 +72,7 @@ prnt(creation, both=True)
 └─┴────┘
 ```
 
-### sep: str
+### sep: str  (default: '')
 
 Put a separator between each input.
 
@@ -84,7 +84,7 @@ prnt("010", "8282", "8282", sep="-")
 010-8282-8282
 ```
 
-### end: str
+### end: str (default: '\n')
 
 Put at the end of an output.
 

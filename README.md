@@ -1,5 +1,6 @@
 # PyPrnt
 
+[![Build Status](https://travis-ci.com/kevink1103/pyprnt.svg?branch=master)](https://travis-ci.com/kevink1103/pyprnt)
 [![PyPI version](https://badge.fury.io/py/pyprnt.svg)](https://badge.fury.io/py/pyprnt)
 
 PyPrnt helps you to print a list or a dictionary in an organized table form.  

@@ -4,8 +4,16 @@ import sys
 import io
 
 from pyprnt.position import Position
+from pyprnt.helper import get_terminal_size
 from pyprnt.helper import border
 from pyprnt import prnt
+
+class TestTerminalMethods(unittest.TestCase):
+
+    def test_get_terminal_size(self):
+        testee = get_terminal_size()
+        expect = 1
+        self.assertGreater(testee, expect)
 
 class TestBorderMethods(unittest.TestCase):
 
@@ -31,14 +39,16 @@ class TestPrintMethods(unittest.TestCase):
 
     @patch('sys.stdout', new_callable=io.StringIO)
     def test_list_basic(self, mock_stdout):
-        prnt(["Adam", "Eve"])
+        creation = ["Adam", "Eve"]
+        prnt(creation, width=50)
         testee = mock_stdout.getvalue()
         expect = '┌─┬────┐\n│0│Adam│\n│1│Eve │\n└─┴────┘\n'
         self.assertEqual(testee, expect)
     
     @patch('sys.stdout', new_callable=io.StringIO)
     def test_dict_basic(self, mock_stdout):
-        prnt({"kimchi": 5000, "Ice Cream": 100})
+        menu = {"kimchi": 5000, "Ice Cream": 100}
+        prnt(menu, width=50)
         testee = mock_stdout.getvalue()
         expect = '┌─────────┬────┐\n│kimchi   │5000│\n│Ice Cream│100 │\n└─────────┴────┘\n'
         self.assertEqual(testee, expect)

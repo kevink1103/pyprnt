@@ -1,10 +1,9 @@
-import os
 import sys
-from .helper import prnt_iteratable
+from .helper import get_terminal_size, prnt_iteratable
 
 def prnt(*obj, enable=True, both=False, truncate=False,
         sep='', end='\n', file=sys.stdout, flush=False,
-        width=os.get_terminal_size().columns or 50):
+        width=get_terminal_size()):
     # Separator in action
     if len(obj) > 1 and sep != '':
         print(*obj, sep=sep, end=end, file=file, flush=flush)

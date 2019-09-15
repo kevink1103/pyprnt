@@ -1,4 +1,12 @@
+import os
+
 from .position import Position
+
+def get_terminal_size():
+    try:
+        return os.get_terminal_size().columns
+    except:
+        return 50
 
 def border(position, label, value, width):
     if 3 + label + value > width:

@@ -98,6 +98,24 @@ prnt(["abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstu
 └─┴──────────────────────────────────────────────┘
 ```
 
+### width: int (default: current Terminal width or 50)
+
+Set the maximum width of Terminal.
+
+```python
+prnt(["Kevin"], width=5)
+```
+
+```text
+┌─┬─┐
+│0│K│
+│ │e│
+│ │v│
+│ │i│
+│ │n│
+└─┴─┘
+```
+
 ### sep: str  (default: '')
 
 Put a separator between each input.
@@ -124,24 +142,6 @@ prnt("The force is with me")
 │0│Adam│
 │1│Eve │
 └─┴────┘The force is with me
-```
-
-### width: int (default: current Terminal width or 50)
-
-Set the maximum width of Terminal.
-
-```python
-prnt(["Kevin"], width=5)
-```
-
-```text
-┌─┬─┐
-│0│K│
-│ │e│
-│ │v│
-│ │i│
-│ │n│
-└─┴─┘
 ```
 
 ## Author

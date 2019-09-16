@@ -17,7 +17,7 @@ def border(position, label, value, width):
     elif position == Position.bottom:
         return "└" + "─" * (label) + "┴" + "─" * (value) + "┘"
 
-def prnt_iteratable(obj, end, truncate, width):
+def prnt_iteratable(obj, end, truncate, file, flush, width):
     if type(obj) == list:
         label = str(len(obj)-1)
         max_label_length = len(label)
@@ -68,5 +68,5 @@ def prnt_iteratable(obj, end, truncate, width):
 
     # Printer
     for i, line in enumerate(output):
-        if i < len(output) - 1: print(line)
-        else: print(line, end=end)
+        if i < len(output) - 1: print(line, file=file, flush=flush)
+        else: print(line, end='', file=file, flush=flush)

@@ -2,8 +2,8 @@ import sys
 from .helper import get_terminal_size, prnt_iteratable
 
 def prnt(*obj, enable=True, both=False, truncate=False,
-        sep='', end='\n', file=sys.stdout, flush=False,
-        width=get_terminal_size()):
+        width=get_terminal_size(),
+        sep='', end='\n', file=sys.stdout, flush=False):
     # Separator in action
     if len(obj) > 1 and sep != '':
         print(*obj, sep=sep, end=end, file=file, flush=flush)
@@ -11,8 +11,8 @@ def prnt(*obj, enable=True, both=False, truncate=False,
 
     for i, o in enumerate(obj):
         if enable and (type(o) == list or type(o) == dict):
-            if both: print(o, sep=sep, end='\n', file=file, flush=flush)
-            prnt_iteratable(o, end=end, truncate=truncate, width=width)
+            if both: print(o, sep=sep, file=file, flush=flush)
+            prnt_iteratable(o, end='', truncate=truncate, file=file, flush=flush, width=width)
         else:
-            trailing = end if (len(obj) >= 1) and (i == len(obj) - 1) else " "
-            print(o, sep=sep, end=trailing, file=file, flush=flush)
+            print(o, sep=sep, end='', file=file, flush=flush)
+    print(end=end)

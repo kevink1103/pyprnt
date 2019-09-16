@@ -12,7 +12,8 @@ def prnt(*obj, enable=True, both=False, truncate=False,
     for i, o in enumerate(obj):
         if enable and (type(o) == list or type(o) == dict):
             if both: print(o, sep=sep, file=file, flush=flush)
-            prnt_iteratable(o, end='', truncate=truncate, file=file, flush=flush, width=width)
+            
+            prnt_iteratable(o, end='', truncate=truncate, width=width, file=file, flush=flush)
         else:
             print(o, sep=sep, end='', file=file, flush=flush)
     print(end=end)

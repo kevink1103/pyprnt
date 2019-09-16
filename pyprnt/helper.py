@@ -8,7 +8,7 @@ def get_terminal_size():
     except:
         return 50
 
-def border(position, label, value, width):
+def border(position, width, label, value):
     if 3 + label + value > width:
         value = width - label - 3
 
@@ -17,7 +17,7 @@ def border(position, label, value, width):
     elif position == Position.bottom:
         return "└" + "─" * (label) + "┴" + "─" * (value) + "┘"
 
-def prnt_iteratable(obj, end, truncate, file, flush, width):
+def prnt_iteratable(obj, end, truncate, width, file, flush):
     if type(obj) == list:
         label = str(len(obj)-1)
         max_label_length = len(label)
@@ -36,8 +36,8 @@ def prnt_iteratable(obj, end, truncate, file, flush, width):
     # Prepare output
     output = []
     allowed_space = width - max_label_length - 3
-    top_border = border(Position.top, max_label_length, max_value_length, width)
-    bottom_border = border(Position.bottom, max_label_length, max_value_length, width)
+    top_border = border(Position.top, width, max_label_length, max_value_length)
+    bottom_border = border(Position.bottom, width, max_label_length, max_value_length)
     
     output.append(top_border)
     for i, j in iterate_items:

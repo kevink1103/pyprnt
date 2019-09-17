@@ -26,17 +26,21 @@ menu = {
     "Kimchi": 5000,
     "Ice Cream": 100
 }
-prnt(creation)
-prnt(menu)
+print(creation)
+prnt(creation) # Magic!
+print(menu)
+prnt(menu) # Magic!
 ```
 
 You should see this...
 
 ```text
+['Adam', 'Eve']
 ┌─┬────┐
 │0│Adam│
 │1│Eve │
 └─┴────┘
+{'Kimchi': 5000, 'Ice Cream': 100}
 ┌─────────┬────┐
 │Kimchi   │5000│
 │Ice Cream│100 │

@@ -48,6 +48,7 @@ def create_output(obj, truncate, width):
         label = str(i)
         label_empty = " " * (max_label_length - len(label))
         value = str(j)
+
         if allowed_space > max_value_length:
             value_empty = " " * (max_value_length - len(value))
         else:

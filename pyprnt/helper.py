@@ -63,7 +63,8 @@ def create_output(obj, truncate, width):
                 new_value = value[:allowed_space]
                 value_empty = " " * (allowed_space - len(new_value))
                 output.append("│{}{}│{}{}│".format(label, label_empty, new_value, value_empty))
-                label = " " * max_label_length
+                label = " " * (max_label_length)
+                label_empty = ""
                 value = value[allowed_space:]
         else:
             if len(value) > allowed_space:

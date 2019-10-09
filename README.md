@@ -150,7 +150,7 @@ prnt("The force is with me")
 
 ## Author
 
-Kevin Kim  
+Copyright (c) 2019 Kevin Kim  
 [Website](https://kevink1103.github.io/) 
 [GitHub](https://github.com/kevink1103) 
 [LinkedIn](https://www.linkedin.com/in/kimsungbum/)

@@ -47,6 +47,111 @@ You should see this...
 └─────────┴────┘
 ```
 
+Wanna see more?  
+Check out the content of a block with ease.
+
+```python
+block = {'index':1,'transaction':[{"sender":"Block_Reward","receipient":"30819f300d06092a864886f70d010101050003818d0030818902818100b9cadf2ca51ca6714cf645f015652a80b9b8fc7e1aafc888334ac6f4f7dc177465595ef713765b027ab97ca7929820d1afb54b64a03cb971f0f46582d5266568f78746d30c4a651b0a0cf14dacdd619f034b330f4c14f253c72496778ff921a1b907aa0e6201369bffb2bd2e0a059d034e711ef004a3100a8998c2786349579f0203010001","value":"5.0"},{"sender":"30819f300d06092a864886f70d010101050003818d0030818902818100b9cadf2ca51ca6714cf645f015652a80b9b8fc7e1aafc888334ac6f4f7dc177465595ef713765b027ab97ca7929820d1afb54b64a03cb971f0f46582d5266568f78746d30c4a651b0a0cf14dacdd619f034b330f4c14f253c72496778ff921a1b907aa0e6201369bffb2bd2e0a059d034e711ef004a3100a8998c2786349579f0203010001","receipient":"30819f300d06092a864886f70d010101050003818d0030818902818100ab65b338fc66d9fc4870b7319f3c21aaf5a0082bce02caf9e3de6dc159c9df91477786028e7380be451d2fb94ed83070e85b588b4ed9d540461d3256bd2aafd3ae0fefa92f82799064414d0ed9e667bc18ad0f48505a2ae9b790a4363fcbef4b526453f91e9572835feabb25aebe2ff38c9abff32b6140c39cb71f8cf0491b850203010001","value":5.0,"signature":"a3da555fe4afe5fc957d466161dbae8b7fbb02c22780cae6fd5a4bbdc3ad7b8753361f74948db662086209c4272ebdadf5b7a14216c18be7f1c3b86ddb3aa43267792f3edc99cc7294fa89bc95f90cfb0ecd2df73b0dde8520499836f86b57af79d837b3c3dc806a37d067ca4a55caee7883bec035fed0b2df40c910cdde99a2"}],'timestamp':'09/23/2019,16:08:19','previous_hash':'This_Is_Genesis_Block','hash':'00e63fb0a8474d78df37e0ba99816d526ba110fc16098ecae65358890975a645','nonce':222}
+
+prnt(block)
+```
+
+```text
+┌─────────────┬──────────────────────────────────┐
+│index        │1                                 │
+│transaction  │┌─┬──────────────────────────────┐│
+│             ││0│┌──────────┬─────────────────┐││
+│             ││ ││sender    │Block_Reward     │││
+│             ││ ││receipient│30819f300d06092a8│││
+│             ││ ││          │64886f70d01010105│││
+│             ││ ││          │0003818d003081890│││
+│             ││ ││          │2818100b9cadf2ca5│││
+│             ││ ││          │1ca6714cf645f0156│││
+│             ││ ││          │52a80b9b8fc7e1aaf│││
+│             ││ ││          │c888334ac6f4f7dc1│││
+│             ││ ││          │77465595ef713765b│││
+│             ││ ││          │027ab97ca7929820d│││
+│             ││ ││          │1afb54b64a03cb971│││
+│             ││ ││          │f0f46582d5266568f│││
+│             ││ ││          │78746d30c4a651b0a│││
+│             ││ ││          │0cf14dacdd619f034│││
+│             ││ ││          │b330f4c14f253c724│││
+│             ││ ││          │96778ff921a1b907a│││
+│             ││ ││          │a0e6201369bffb2bd│││
+│             ││ ││          │2e0a059d034e711ef│││
+│             ││ ││          │004a3100a8998c278│││
+│             ││ ││          │6349579f020301000│││
+│             ││ ││          │1                │││
+│             ││ ││value     │5.0              │││
+│             ││ │└──────────┴─────────────────┘││
+│             ││1│┌──────────┬─────────────────┐││
+│             ││ ││sender    │30819f300d06092a8│││
+│             ││ ││          │64886f70d01010105│││
+│             ││ ││          │0003818d003081890│││
+│             ││ ││          │2818100b9cadf2ca5│││
+│             ││ ││          │1ca6714cf645f0156│││
+│             ││ ││          │52a80b9b8fc7e1aaf│││
+│             ││ ││          │c888334ac6f4f7dc1│││
+│             ││ ││          │77465595ef713765b│││
+│             ││ ││          │027ab97ca7929820d│││
+│             ││ ││          │1afb54b64a03cb971│││
+│             ││ ││          │f0f46582d5266568f│││
+│             ││ ││          │78746d30c4a651b0a│││
+│             ││ ││          │0cf14dacdd619f034│││
+│             ││ ││          │b330f4c14f253c724│││
+│             ││ ││          │96778ff921a1b907a│││
+│             ││ ││          │a0e6201369bffb2bd│││
+│             ││ ││          │2e0a059d034e711ef│││
+│             ││ ││          │004a3100a8998c278│││
+│             ││ ││          │6349579f020301000│││
+│             ││ ││          │1                │││
+│             ││ ││receipient│30819f300d06092a8│││
+│             ││ ││          │64886f70d01010105│││
+│             ││ ││          │0003818d003081890│││
+│             ││ ││          │2818100ab65b338fc│││
+│             ││ ││          │66d9fc4870b7319f3│││
+│             ││ ││          │c21aaf5a0082bce02│││
+│             ││ ││          │caf9e3de6dc159c9d│││
+│             ││ ││          │f91477786028e7380│││
+│             ││ ││          │be451d2fb94ed8307│││
+│             ││ ││          │0e85b588b4ed9d540│││
+│             ││ ││          │461d3256bd2aafd3a│││
+│             ││ ││          │e0fefa92f82799064│││
+│             ││ ││          │414d0ed9e667bc18a│││
+│             ││ ││          │d0f48505a2ae9b790│││
+│             ││ ││          │a4363fcbef4b52645│││
+│             ││ ││          │3f91e9572835feabb│││
+│             ││ ││          │25aebe2ff38c9abff│││
+│             ││ ││          │32b6140c39cb71f8c│││
+│             ││ ││          │f0491b85020301000│││
+│             ││ ││          │1                │││
+│             ││ ││value     │5.0              │││
+│             ││ ││signature │a3da555fe4afe5fc9│││
+│             ││ ││          │57d466161dbae8b7f│││
+│             ││ ││          │bb02c22780cae6fd5│││
+│             ││ ││          │a4bbdc3ad7b875336│││
+│             ││ ││          │1f74948db66208620│││
+│             ││ ││          │9c4272ebdadf5b7a1│││
+│             ││ ││          │4216c18be7f1c3b86│││
+│             ││ ││          │ddb3aa43267792f3e│││
+│             ││ ││          │dc99cc7294fa89bc9│││
+│             ││ ││          │5f90cfb0ecd2df73b│││
+│             ││ ││          │0dde8520499836f86│││
+│             ││ ││          │b57af79d837b3c3dc│││
+│             ││ ││          │806a37d067ca4a55c│││
+│             ││ ││          │aee7883bec035fed0│││
+│             ││ ││          │b2df40c910cdde99a│││
+│             ││ ││          │2                │││
+│             ││ │└──────────┴─────────────────┘││
+│             │└─┴──────────────────────────────┘│
+│timestamp    │09/23/2019,16:08:19               │
+│previous_hash│This_Is_Genesis_Block             │
+│hash         │00e63fb0a8474d78df37e0ba99816d526b│
+│             │a110fc16098ecae65358890975a645    │
+│nonce        │222                               │
+└─────────────┴──────────────────────────────────┘
+```
+
 ## And more...
 
 ### enable: bool (default: True)
@@ -107,17 +212,17 @@ prnt(["abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstu
 Set the maximum width of Terminal.
 
 ```python
-prnt(["Kevin"], width=5)
+prnt(["Kevin Kim is a developer."], width=10)
 ```
 
 ```text
-┌─┬─┐
-│0│K│
-│ │e│
-│ │v│
-│ │i│
-│ │n│
-└─┴─┘
+┌─┬──────┐
+│0│Kevin │
+│ │Kim is│
+│ │ a dev│
+│ │eloper│
+│ │.     │
+└─┴──────┘
 ```
 
 ### sep: str  (default: '')

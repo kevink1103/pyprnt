@@ -6,6 +6,9 @@ __all__ = ['prnt']
 def prnt(*obj, enable=True, both=False, truncate=False,
         width=get_terminal_size(),
         sep=' ', end='\n', file=sys.stdout, flush=False):
+    if width < 10:
+        raise ValueError('width should be bigger than 10')
+    
     # Separator in action
     if len(obj) > 1 and (sep != '' and sep != ' '):
         print(*obj, sep=sep, end=end, file=file, flush=flush)

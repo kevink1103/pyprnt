@@ -17,14 +17,16 @@ def border(position, width, label, value):
     elif position == Position.bottom:
         return "└" + "─" * (label) + "┴" + "─" * (value) + "┘"
 
-def prnt_iteratable(obj, end, truncate, width, file, flush):
-    output = create_output(obj, truncate=truncate, width=width)
+def prnt_iteratable(obj, end, truncate, depth, width, file, flush):
+    output = create_output(obj, truncate=truncate, level=0, depth=depth, width=width)
     output = tailor_output(output)
     print_output(output, end=end, file=file, flush=flush)
 
-def create_output(obj, truncate, width):
+def create_output(obj, truncate, level, depth, width):
     # This function is RECURSIVE
     if width < 10:
+        return str(obj)
+    if level == depth:
         return str(obj)
 
     if type(obj) == list:
@@ -42,25 +44,33 @@ def create_output(obj, truncate, width):
     else:
         raise TypeError('need a list or a dictionary')
 
-    # Check if width is bigger than very first label max length
-    if width < max_label_length + 4:
-        raise ValueError("increase your window width")
+    # Resize if the label is too long
+    half_width = int(width/2)-1
+    if max_label_length > half_width:
+        max_label_length = half_width
+        allowed_space = allowed_space = width - max_label_length - 3
 
     # Prepare output
     output = []
-    allowed_space = width - max_label_length - 3
+    allowed_space = width - max_label_length - 3 # Max Allowed Space for Value
     top_border = border(Position.top, width, max_label_length, max_value_length)
     bottom_border = border(Position.bottom, width, max_label_length, max_value_length)
     
     output.append(top_border)
     for i, j in iterate_items:
+        # Label
         label = str(i)
         label_empty = " " * (max_label_length - len(label))
+        # Truncate if the label is too long
+        if len(label) > half_width:
+            label = label[:half_width-3] + "..."
+            label_empty = ""
+
+        # Value
         if type(j) == list or type(j) == dict:
-            value = create_output(j, truncate=truncate, width=width-max_label_length-3)
+            value = create_output(j, truncate=truncate, level=level+1, depth=depth, width=width-max_label_length-3)
         else:
             value = str(j)
-
         if allowed_space > max_value_length:
             value_empty = " " * (max_value_length - len(value))
         else:
@@ -91,6 +101,9 @@ def create_output(obj, truncate, width):
     return output
 
 def tailor_output(output):
+    if type(output) != list:
+        return output
+
     top_border = output[0]
     bottom_border = output[len(output)-1]
     max_width = 0

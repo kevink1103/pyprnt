@@ -80,11 +80,13 @@ prnt(block, truncate=True) # Magic!
 └─────────────┴──────────────────────────────────┘
 ```
 
-## And more...
+**Isn't this amazing? Learn how to use this with a few more options**
+
+## Options
 
 ### enable: bool (default: True)
 
-Enable prnt() form.
+Enable `prnt()` form.
 
 ```python
 prnt(creation, enable=False)
@@ -96,7 +98,7 @@ prnt(creation, enable=False)
 
 ### both: bool (default: False)
 
-Print in both original print() form and prnt() form.
+Print in both original `print()` form and `prnt()` form.
 
 ```python
 prnt(creation, both=True)
@@ -135,9 +137,34 @@ prnt(["abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstu
 └─┴──────────────────────────────────────────────┘
 ```
 
+### depth: int (default: -1 no limit)
+
+Set the depth of recursive `prnt()`.  
+Depth should be either -1 or bigger than 0.  
+The contents beyond the depth will be printed as string.
+
+```python
+prnt(block, depth=2)
+```
+
+```text
+┌─────────────┬──────────────────────────────────┐
+│index        │1                                 │
+│transaction  │┌─┬──────────────────────────────┐│
+│             ││0│{'sender': 'Block_Reward', ...││
+│             ││1│{'sender': '30819f300d06092...││
+│             │└─┴──────────────────────────────┘│
+│timestamp    │09/23/2019,16:08:19               │
+│previous_hash│This_Is_Genesis_Block             │
+│hash         │00e63fb0a8474d78df37e0ba99816d5...│
+│nonce        │222                               │
+└─────────────┴──────────────────────────────────┘
+```
+
 ### width: int (default: current Terminal width or 50)
 
-Set the maximum width of Terminal.
+Set the maximum width of Terminal.  
+Width should be bigger than 20.
 
 ```python
 prnt(["Kevin Kim is a developer."], width=10)
@@ -153,7 +180,7 @@ prnt(["Kevin Kim is a developer."], width=10)
 └─┴──────┘
 ```
 
-### sep: str  (default: '')
+### sep: str  (default: ' ')
 
 Put a separator between each input.
 
@@ -179,6 +206,30 @@ prnt("The force is with me")
 │0│Adam│
 │1│Eve │
 └─┴────┘The force is with me
+```
+
+## Caution
+
+If the length of label part (index for list, key for dict) goes beyond the half size of your width,  
+the label will be truncated to the half size of your width in order to secure enough space for displaying values.
+
+For example,
+
+```python
+disease = {
+    "pneumonoultramicroscopicsilicovolcanoconiosis": "an invented long word said to mean a lung disease caused by inhaling very fine ash and sand dust."
+}
+prnt(disease)
+```
+
+```text
+┌────────────────────────┬───────────────────────┐
+│pneumonoultramicrosco...│an invented long word s│
+│                        │aid to mean a lung dise│
+│                        │ase caused by inhaling │
+│                        │very fine ash and sand │
+│                        │dust.                  │
+└────────────────────────┴───────────────────────┘
 ```
 
 ## Author

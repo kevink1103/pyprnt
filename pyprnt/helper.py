@@ -131,6 +131,15 @@ def tailor_output(output):
             diff = max_width - len(row)
             if diff > 0:
                 output[i] = row[:-1] + (" " * (diff)) + "│"
+    else:
+        top_border = top_border[:diff-1]
+        top_border += "─" * (diff)
+        top_border += "┐"
+        bottom_border = bottom_border[:diff-1]
+        bottom_border += "─" * (diff)
+        bottom_border += "┘"
+        output[0] = top_border
+        output[len(output)-1] = bottom_border
     
     return output
 

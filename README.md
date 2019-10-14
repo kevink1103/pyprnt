@@ -1,7 +1,11 @@
 # PyPrnt
 
-[![Build Status](https://travis-ci.com/kevink1103/pyprnt.svg?branch=master)](https://travis-ci.com/kevink1103/pyprnt)
+[![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
+[![PyPI pyversions](https://img.shields.io/pypi/pyversions/pyprnt)](https://pypi.org/project/pyprnt/)
+[![MIT LICENSE](https://img.shields.io/pypi/l/pyprnt)](https://github.com/kevink1103/pyprnt/blob/master/LICENSE)  
 [![PyPI version](https://badge.fury.io/py/pyprnt.svg)](https://badge.fury.io/py/pyprnt)
+[![PyPI monthly downloads](https://img.shields.io/pypi/dm/pyprnt)](https://pypi.org/project/pyprnt/)  
+[![Build Status](https://travis-ci.com/kevink1103/pyprnt.svg?branch=master)](https://travis-ci.com/kevink1103/pyprnt)
 
 PyPrnt helps you to print a list or a dictionary in an organized table form.  
 Just try it out!  

@@ -88,6 +88,8 @@ prnt(block, truncate=True) # Magic!
 
 ## Options
 
+> prnt(obj, enable=True, both=False, truncate=False, depth=-1, width=get_terminal_size(), sep=' ', end='\n', file=sys.stdout, flush=False)
+
 ### enable: bool (default: True)
 
 Enable `prnt()` form.

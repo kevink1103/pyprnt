@@ -92,7 +92,8 @@ def create_output(obj, truncate, level, depth, width):
             if type(value) == list:
                 for ii, line in enumerate(value):
                     if ii > 0: label = " " * len(label)
-                    output.append(f"│{label}{label_empty}│{line}│")
+                    # output.append(f"│{label}{label_empty}│{line}│") above 3.7
+                    output.append("│{}{}│{}│".format(label, label_empty, line))
             else:
                 if type(value) == str and len(value) > allowed_space:
                     value = value[:allowed_space - 3] + "..."

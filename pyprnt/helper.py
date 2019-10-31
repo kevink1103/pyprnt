@@ -28,6 +28,8 @@ def create_output(obj, truncate, level, depth, width):
         return str(obj)
     if level == depth:
         return str(obj)
+    if len(obj) == 0:
+        return str(obj)
 
     if type(obj) == list:
         label = str(len(obj)-1)
@@ -145,6 +147,9 @@ def tailor_output(output):
     return output
 
 def print_output(output, end, file, flush):
+    if type(output) == str:
+        print(output, end='', file=file, flush=flush)
+        return
     for i, line in enumerate(output):
         if i < len(output) - 1: print(line, file=file, flush=flush)
         else: print(line, end='', file=file, flush=flush)

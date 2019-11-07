@@ -185,12 +185,12 @@ prnt(["Kevin Kim is a developer."], width=20)
 └─┴────────────────┘
 ```
 
-### output: bool  (default: True)
+### output: bool (default: False)
 
 Get a return string for the printed content from `prnt()`.
 
 ```python
-output_data = prnt(creation)
+output_data = prnt(creation, output=True)
 print(repr(output_data))
 print(output_data)
 ```
@@ -207,7 +207,7 @@ print(output_data)
 └─┴────┘
 ```
 
-### sep: str  (default: ' ')
+### sep: str (default: ' ')
 
 Default `print()` parameter.  
 Put a separator between each input.

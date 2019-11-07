@@ -4,7 +4,7 @@ from .helper import get_terminal_size, prnt_iteratable
 __all__ = ['prnt']
 
 def prnt(*obj, enable=True, both=False, truncate=False,
-        depth=-1, width=get_terminal_size(), output=True,
+        depth=-1, width=get_terminal_size(), output=False,
         sep=' ', end='\n', file=sys.stdout, flush=False):
     if width < 20:
         raise ValueError('width should be bigger than 20')

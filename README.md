@@ -90,7 +90,7 @@ Isn't this amazing? **Learn how to use this with a few more options**
 
 ## Options
 
-> prnt(obj, enable=True, both=False, truncate=False, depth=-1, width=get_terminal_size(), sep=' ', end='\n', file=sys.stdout, flush=False)
+> prnt(obj, enable=True, both=False, truncate=False, depth=-1, output=False, width=get_terminal_size(), sep=' ', end='\n', file=sys.stdout, flush=False)
 
 ### enable: bool (default: True)
 

@@ -34,6 +34,7 @@ print(creation)
 prnt(creation) # Magic!
 print(menu)
 prnt(menu) # Magic!
+prnt("Eat apple.") # Magic ignored for types other than list & dict
 ```
 
 You should see this...
@@ -49,6 +50,7 @@ You should see this...
 │Kimchi   │5000│
 │Ice Cream│100 │
 └─────────┴────┘
+Eat apple.
 ```
 
 Wanna see more?  
@@ -173,21 +175,41 @@ Set the maximum width of Terminal.
 Width should be bigger than 20.
 
 ```python
-prnt(["Kevin Kim is a developer."], width=10)
+prnt(["Kevin Kim is a developer."], width=20)
 ```
 
 ```text
-┌─┬──────┐
-│0│Kevin │
-│ │Kim is│
-│ │ a dev│
-│ │eloper│
-│ │.     │
-└─┴──────┘
+┌─┬────────────────┐
+│0│Kevin Kim is a d│
+│ │eveloper.       │
+└─┴────────────────┘
+```
+
+### output: bool  (default: True)
+
+Get a return string for the printed content from `prnt()`.
+
+```python
+output_data = prnt(creation)
+print(repr(output_data))
+print(output_data)
+```
+
+```text
+┌─┬────┐
+│0│Adam│
+│1│Eve │
+└─┴────┘
+'┌─┬────┐\n│0│Adam│\n│1│Eve │\n└─┴────┘'
+┌─┬────┐
+│0│Adam│
+│1│Eve │
+└─┴────┘
 ```
 
 ### sep: str  (default: ' ')
 
+Default `print()` parameter.  
 Put a separator between each input.
 
 ```python
@@ -200,6 +222,7 @@ prnt("010", "8282", "8282", sep="-")
 
 ### end: str (default: '\n')
 
+Default `print()` parameter.  
 Put at the end of an output.
 
 ```python
@@ -213,6 +236,15 @@ prnt("The force is with me")
 │1│Eve │
 └─┴────┘The force is with me
 ```
+
+### file: object with a write method (default: sys.stdout)
+
+Default `print()` parameter.  
+
+### flush: bool (default: False)
+
+Default `print()` parameter.  
+Specify if the output is flushed (True) or buffered (False).
 
 ## Caution
 

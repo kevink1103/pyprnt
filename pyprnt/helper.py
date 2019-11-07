@@ -1,7 +1,5 @@
 import os
 
-from .position import Position
-
 def get_terminal_size():
     try:
         return os.get_terminal_size().columns
@@ -12,15 +10,19 @@ def border(position, width, label, value):
     if 3 + label + value > width:
         value = width - label - 3
 
-    if position == Position.top:
+    if position == "top":
         return "┌" + "─" * (label) + "┬" + "─" * (value) + "┐"
-    elif position == Position.bottom:
+    elif position == "bottom":
         return "└" + "─" * (label) + "┴" + "─" * (value) + "┘"
 
 def prnt_iteratable(obj, end, truncate, depth, width, file, flush):
     output = create_output(obj, truncate=truncate, level=0, depth=depth, width=width)
-    output = tailor_output(output)
     print_output(output, end=end, file=file, flush=flush)
+    
+    if type(output) != list:
+        return output
+    else:
+        return "\n".join(output)
 
 def create_output(obj, truncate, level, depth, width):
     # This function is RECURSIVE
@@ -55,8 +57,8 @@ def create_output(obj, truncate, level, depth, width):
     # Prepare output
     output = []
     allowed_space = width - max_label_length - 3 # Max Allowed Space for Value
-    top_border = border(Position.top, width, max_label_length, max_value_length)
-    bottom_border = border(Position.bottom, width, max_label_length, max_value_length)
+    top_border = border("top", width, max_label_length, max_value_length)
+    bottom_border = border("bottom", width, max_label_length, max_value_length)
     
     output.append(top_border)
     for i, j in iterate_items:
@@ -101,6 +103,7 @@ def create_output(obj, truncate, level, depth, width):
                     value = value[:allowed_space - 3] + "..."
                 output.append("│{}{}│{}{}│".format(label, label_empty, value, value_empty))
     output.append(bottom_border)
+    output = tailor_output(output)
     return output
 
 def tailor_output(output):

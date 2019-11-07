@@ -86,7 +86,7 @@ prnt(block, truncate=True) # Magic!
 └─────────────┴──────────────────────────────────┘
 ```
 
-Isn't this **amazing**? Learn how to use this with a few more options
+Isn't this amazing? **Learn how to use this with a few more options**
 
 ## Options
 

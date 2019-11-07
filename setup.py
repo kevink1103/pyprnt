@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-version = '2.3.0'
+version = '2.3.2'
 
 with open('README.md', encoding='utf-8') as f:
     long_description = f.read()
@@ -19,13 +19,9 @@ setup(
     install_requires = [],
     packages         = find_packages(exclude = []),
     keywords         = ['pretty', 'print'],
-    python_requires  = '>=3',
+    python_requires  = '>=3.3',
     zip_safe         = False,
     classifiers      = [
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.0',
-        'Programming Language :: Python :: 3.1',
-        'Programming Language :: Python :: 3.2',
         'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',

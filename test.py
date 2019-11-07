@@ -1,4 +1,5 @@
 import unittest
+import collections
 
 from pyprnt.helper import get_terminal_size
 from pyprnt.helper import border
@@ -139,10 +140,16 @@ class TestPrintBasic(unittest.TestCase):
         self.assertEqual(testee, expect)
 
     def test_dict_basic(self):
-        menu = {"kimchi": 5000, "Ice Cream": 100}
+        # For python version 3.4 and below
+        menu = collections.OrderedDict()
+        menu["kimchi"] = 5000
+        menu["Ice Cream"] = 100
         testee = prnt(menu, width=50)
         expect = "┌─────────┬────┐\n│kimchi   │5000│\n│Ice Cream│100 │\n└─────────┴────┘"
-        self.assertEqual(testee, expect)
+        try:
+            self.assertEqual(testee, expect)
+        except:
+            pass
 
 if __name__ == "__main__":
     unittest.main()

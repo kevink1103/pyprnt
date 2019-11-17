@@ -40,7 +40,7 @@ def create_output(obj, truncate, level, depth, width):
         max_value_length = len(max(value, key=len))
         iterate_items = enumerate(obj)
     elif type(obj) == dict:
-        label = list(obj.keys())
+        label = list([str(key) for key in obj.keys()])
         max_label_length = len(max(label, key=len))
         value = list(map(str, obj.values()))
         max_value_length = len(max(value, key=len))

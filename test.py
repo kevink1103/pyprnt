@@ -1,8 +1,8 @@
 import unittest
 import collections
 
-from pyprnt.helper import get_terminal_size
-from pyprnt.helper import border
+from pyprnt.util import get_terminal_size
+from pyprnt.util import border
 from pyprnt import prnt
 
 class TestTerminalMethods(unittest.TestCase):

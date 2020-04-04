@@ -1,6 +1,7 @@
-import collections
-import sys
 import unittest
+
+import sys
+import collections
 
 from pyprnt.util import get_terminal_size
 from pyprnt.util import border

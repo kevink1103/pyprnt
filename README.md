@@ -7,7 +7,7 @@
 [![PyPI monthly downloads](https://img.shields.io/pypi/dm/pyprnt)](https://pypistats.org/packages/pyprnt)  
 [![Build Status](https://travis-ci.com/kevink1103/pyprnt.svg?branch=master)](https://travis-ci.com/kevink1103/pyprnt)
 
-PyPrnt helps you to print a list or a dictionary in an organized table form.  
+PyPrnt helps you to print a list (sequence container) or a dictionary (mapping object) in an organized table form.  
 Just try it out!  
 Don't use `print()` anymore. Use `prnt()` for the rest of your life :)
 
@@ -187,7 +187,8 @@ prnt(["Kevin Kim is a developer."], width=20)
 
 ### output: bool (default: False)
 
-Get a return string for the printed content from `prnt()`.
+Get a return string for the printed content from `prnt()`.  
+`prnt()` will not print anything.
 
 ```python
 output_data = prnt(creation, output=True)

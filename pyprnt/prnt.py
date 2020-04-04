@@ -26,7 +26,7 @@ def prnt(*obj, enable=True, both=False, truncate=False,
                 if both:
                     print(o, sep=sep, file=file, flush=flush)
                     output_data = str(o) + "\n"
-                output_data += prnt_iteratable(o, end='', truncate=truncate, depth=depth, width=width, file=file, flush=flush)
+                output_data += prnt_iteratable(o, end='', truncate=truncate, depth=depth, width=width, output=output, file=file, flush=flush)
             else:
                 temp_end = ' ' if i < len(obj)-1 else ''
                 print(o, sep=sep, end=temp_end, file=file, flush=flush)

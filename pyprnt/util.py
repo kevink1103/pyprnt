@@ -1,5 +1,5 @@
-from collections.abc import Mapping, Sequence
 import os
+from collections.abc import Mapping, Sequence
 
 def get_terminal_size():
     try:
@@ -16,14 +16,15 @@ def border(position, width, label, value):
     elif position == "bottom":
         return "└" + "─" * (label) + "┴" + "─" * (value) + "┘"
 
-def prnt_iteratable(obj, end, truncate, depth, width, file, flush):
-    output = create_output(obj, truncate=truncate, level=0, depth=depth, width=width)
-    print_output(output, end=end, file=file, flush=flush)
+def prnt_iteratable(obj, end, truncate, depth, width, output, file, flush):
+    output_data = create_output(obj, truncate=truncate, level=0, depth=depth, width=width)
+    if not output:
+        print_output(output_data, end=end, file=file, flush=flush)
 
-    if type(output) != list:
-        return output
+    if type(output_data) != list:
+        return output_data
     else:
-        return "\n".join(output)
+        return "\n".join(output_data)
 
 def create_output(obj, truncate, level, depth, width):
     # This function is RECURSIVE
@@ -68,7 +69,7 @@ def create_output(obj, truncate, level, depth, width):
             label_empty = ""
 
         # Value
-        if not isinstance(j, str) and isinstance(j, (Sequence, Mapping)):
+        if is_sequence_container(j) or isinstance(j, Mapping):
             value = create_output(j, truncate=truncate, level=level+1, depth=depth, width=width-max_label_length-3)
         else:
             value = safe_str(j)

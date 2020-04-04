@@ -1,5 +1,6 @@
-import os
 from collections.abc import Mapping, Sequence
+
+import os
 
 def get_terminal_size():
     try:

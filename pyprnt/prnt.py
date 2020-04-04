@@ -1,5 +1,7 @@
 from collections.abc import Mapping
+
 import sys
+
 from pyprnt.util import get_terminal_size, prnt_iteratable, is_sequence_container
 
 def prnt(*obj, enable=True, both=False, truncate=False,

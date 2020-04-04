@@ -2,8 +2,10 @@ import sys
 from pyprnt.util import get_terminal_size, prnt_iteratable
 
 def prnt(*obj, enable=True, both=False, truncate=False,
-        depth=-1, width=get_terminal_size(), output=False,
+        depth=-1, width=None, output=False,
         sep=' ', end='\n', file=sys.stdout, flush=False):
+    width = width or get_terminal_size()
+
     try:
         if width < 20:
             raise ValueError('width should be bigger than 20')

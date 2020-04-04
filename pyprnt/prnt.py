@@ -1,9 +1,12 @@
+from collections.abc import Mapping
 import sys
-from pyprnt.util import get_terminal_size, prnt_iteratable
+from pyprnt.util import get_terminal_size, prnt_iteratable, is_sequence_container
 
 def prnt(*obj, enable=True, both=False, truncate=False,
-        depth=-1, width=get_terminal_size(), output=False,
+        depth=-1, width=None, output=False,
         sep=' ', end='\n', file=sys.stdout, flush=False):
+    width = width or get_terminal_size()
+
     try:
         if width < 20:
             raise ValueError('width should be bigger than 20')
@@ -19,7 +22,7 @@ def prnt(*obj, enable=True, both=False, truncate=False,
         output_data = ""
 
         for i, o in enumerate(obj):
-            if enable and (type(o) == list or type(o) == dict):
+            if enable and (is_sequence_container(o) or isinstance(o, Mapping)):
                 if both:
                     print(o, sep=sep, file=file, flush=flush)
                     output_data = str(o) + "\n"
@@ -33,7 +36,7 @@ def prnt(*obj, enable=True, both=False, truncate=False,
                 else:
                     output_data = str(o) + temp_end
 
-                if i < len(obj)-1 and (type(obj[i+1]) == list or type(obj[i+1]) == dict):
+                if i < len(obj)-1 and (is_sequence_container(obj[i+1]) or isinstance(obj[i+1], Mapping)):
                     print()
         print(end=end)
         if end != '\n':

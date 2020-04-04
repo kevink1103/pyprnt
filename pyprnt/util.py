@@ -1,3 +1,4 @@
+from collections.abc import Mapping, Sequence
 import os
 
 def get_terminal_size():
@@ -18,7 +19,7 @@ def border(position, width, label, value):
 def prnt_iteratable(obj, end, truncate, depth, width, file, flush):
     output = create_output(obj, truncate=truncate, level=0, depth=depth, width=width)
     print_output(output, end=end, file=file, flush=flush)
-    
+
     if type(output) != list:
         return output
     else:
@@ -26,23 +27,19 @@ def prnt_iteratable(obj, end, truncate, depth, width, file, flush):
 
 def create_output(obj, truncate, level, depth, width):
     # This function is RECURSIVE
-    if width < 10:
-        return str(obj)
-    if level == depth:
-        return str(obj)
-    if len(obj) == 0:
-        return str(obj)
+    if width < 10 or level == depth or len(obj) == 0:
+        return safe_str(obj)
 
-    if type(obj) == list:
+    if is_sequence_container(obj):
         label = str(len(obj)-1)
         max_label_length = len(label)
-        value = list(map(str, obj))
+        value = list(map(safe_str, obj))
         max_value_length = len(max(value, key=len))
         iterate_items = enumerate(obj)
-    elif type(obj) == dict:
-        label = list([str(key) for key in obj.keys()])
+    elif isinstance(obj, Mapping):
+        label = list([safe_str(key) for key in obj.keys()])
         max_label_length = len(max(label, key=len))
-        value = list(map(str, obj.values()))
+        value = list(map(safe_str, obj.values()))
         max_value_length = len(max(value, key=len))
         iterate_items = obj.items()
     else:
@@ -59,11 +56,11 @@ def create_output(obj, truncate, level, depth, width):
     allowed_space = width - max_label_length - 3 # Max Allowed Space for Value
     top_border = border("top", width, max_label_length, max_value_length)
     bottom_border = border("bottom", width, max_label_length, max_value_length)
-    
+
     output.append(top_border)
     for i, j in iterate_items:
         # Label
-        label = str(i)
+        label = safe_str(i)
         label_empty = " " * (max_label_length - len(label))
         # Truncate if the label is too long
         if len(label) > half_width:
@@ -71,18 +68,18 @@ def create_output(obj, truncate, level, depth, width):
             label_empty = ""
 
         # Value
-        if type(j) == list or type(j) == dict:
+        if not isinstance(j, str) and isinstance(j, (Sequence, Mapping)):
             value = create_output(j, truncate=truncate, level=level+1, depth=depth, width=width-max_label_length-3)
         else:
-            value = str(j)
+            value = safe_str(j)
         if allowed_space > max_value_length:
             value_empty = " " * (max_value_length - len(value))
         else:
             value_empty = " " * (allowed_space - len(value))
 
-        if type(value) != list and len(value) > allowed_space and not truncate:
+        if not is_sequence_container(j) and len(value) > allowed_space and not truncate:
             # Extra rows to print full long value
-            while (True):
+            while True:
                 if len(value) == 0:
                     break
 
@@ -93,7 +90,7 @@ def create_output(obj, truncate, level, depth, width):
                 label_empty = ""
                 value = value[allowed_space:]
         else:
-            if type(value) == list:
+            if is_sequence_container(value):
                 for ii, line in enumerate(value):
                     if ii > 0: label = " " * len(label)
                     # output.append(f"│{label}{label_empty}│{line}│") above 3.7
@@ -107,7 +104,7 @@ def create_output(obj, truncate, level, depth, width):
     return output
 
 def tailor_output(output):
-    if type(output) != list:
+    if not is_sequence_container(output):
         return output
 
     top_border = output[0]
@@ -146,7 +143,7 @@ def tailor_output(output):
         diff = max_width - len(row)
         if diff > 0:
             output[i] = row[:-1] + (" " * (diff)) + "│"
-    
+
     return output
 
 def print_output(output, end, file, flush):
@@ -156,3 +153,11 @@ def print_output(output, end, file, flush):
     for i, line in enumerate(output):
         if i < len(output) - 1: print(line, file=file, flush=flush)
         else: print(line, end='', file=file, flush=flush)
+
+def is_sequence_container(obj):
+    return not isinstance(obj, str) and isinstance(obj, Sequence)
+
+def safe_str(obj, newline='\\n'):
+    """This function eliminates newlines and replaces them with the explicit character newline string
+    passed.  Defaults to the showing '\n' explicitly"""
+    return str(obj).replace('\n', newline)

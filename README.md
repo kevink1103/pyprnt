@@ -4,7 +4,9 @@
 [![PyPI pyversions](https://img.shields.io/pypi/pyversions/pyprnt)](https://pypi.org/project/pyprnt/)
 [![MIT LICENSE](https://img.shields.io/pypi/l/pyprnt)](https://github.com/kevink1103/pyprnt/blob/master/LICENSE)  
 [![PyPI version](https://badge.fury.io/py/pyprnt.svg)](https://badge.fury.io/py/pyprnt)
-[![PyPI monthly downloads](https://img.shields.io/pypi/dm/pyprnt)](https://pypistats.org/packages/pyprnt)  
+[![Weekly Downloads](https://pepy.tech/badge/pyprnt/week)](https://pepy.tech/project/pyprnt/week)
+[![Monthly Downloads](https://pepy.tech/badge/pyprnt/month)](https://pepy.tech/project/pyprnt/month)
+[![Total Downloads](https://pepy.tech/badge/pyprnt)](https://pepy.tech/project/pyprnt)  
 [![Build Status](https://travis-ci.com/kevink1103/pyprnt.svg?branch=master)](https://travis-ci.com/kevink1103/pyprnt)
 
 PyPrnt helps you to print a list (sequence container) or a dictionary (mapping object) in an organized table form.  

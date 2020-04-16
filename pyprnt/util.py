@@ -17,10 +17,12 @@ def border(position, width, label, value):
     elif position == "bottom":
         return "└" + "─" * (label) + "┴" + "─" * (value) + "┘"
 
-def prnt_iteratable(obj, end, truncate, depth, width, output, file, flush):
+def prnt_iteratable(obj, end, truncate, depth, width, output, file, flush, last):
     output_data = create_output(obj, truncate=truncate, level=0, depth=depth, width=width)
     if not output:
         print_output(output_data, end=end, file=file, flush=flush)
+        if not last:
+            print()
 
     if type(output_data) != list:
         return output_data
@@ -153,8 +155,10 @@ def print_output(output, end, file, flush):
         print(output, end='', file=file, flush=flush)
         return
     for i, line in enumerate(output):
-        if i < len(output) - 1: print(line, file=file, flush=flush)
-        else: print(line, end='', file=file, flush=flush)
+        if i < len(output) - 1:
+            print(line, file=file, flush=flush)
+        else:
+            print(line, end='', file=file, flush=flush)
 
 def is_sequence_container(obj):
     return not isinstance(obj, str) and isinstance(obj, Sequence)

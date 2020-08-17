@@ -81,7 +81,7 @@ def create_output(obj, truncate, level, depth, width):
         else:
             value_empty = " " * (allowed_space - len(value))
 
-        if not is_sequence_container(j) and len(value) > allowed_space and not truncate:
+        if not is_sequence_container(j) and not isinstance(j, Mapping) and len(value) > allowed_space and not truncate:
             # Extra rows to print full long value
             while True:
                 if len(value) == 0:
